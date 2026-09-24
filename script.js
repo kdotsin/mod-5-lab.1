@@ -1,4 +1,5 @@
 const addBtn = document.getElementById('add-item');
+const rmAllBtn = document.getElementById('remove-all-btn');
 const shoppingList = document.getElementById('shopping-list');
 let inputName = document.getElementById('item-name');
 let inputPrice = document.getElementById('item-price');
@@ -6,6 +7,7 @@ let totalPrice = document.getElementById('total-price');
 let itemList = [];
 
 addBtn.addEventListener('click', handleAddEvent)
+rmAllBtn.addEventListener('click', handleRmEvent)
 
 function handleAddEvent(event) {
     if (!inputName.value && !inputPrice.value) {
@@ -23,6 +25,13 @@ function handleAddEvent(event) {
         inputName.value = '';
         inputPrice.value = '';
     }
+}
+
+function handleRmEvent(event) {
+    itemList = [];
+    displayList();
+    inputName.value = '';
+    inputPrice.value = '';
 }
 
 function displayList() {
